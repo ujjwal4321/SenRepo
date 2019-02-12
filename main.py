@@ -22,7 +22,7 @@ _handle = int(sys.argv[1])
 # Here we use a fixed set of properties simply for demonstrating purposes
 # In a "real life" plugin you will need to get info and links to video files/streams
 # from some web-site or online service.
-VIDEO = {'LIVE TV': [{'name': 'ABP News',
+VIDEOS = {'LIVE TV': [{'name': 'ABP News',
                        'thumb': 'http://www.media247.co.uk/bizasia/wp-content/uploads/2017/01/abpnewsnew001.jpg',
                        'video': 'http://hindiabp-lh.akamaihd.net/i/hindiabp1new_1@192103/master.m3u8',
                        'genre': 'Animals'},
@@ -104,19 +104,6 @@ VIDEO = {'LIVE TV': [{'name': 'ABP News',
                        'genre': 'Animals'}
 					   
                       ],
-			'MHDTVLIVE': [{'name': 'Sony ESPN HD1',
-                      'thumb': 'http://www.vidsplay.com/vids/us_postal.jpg',
-                      'video': 'http://www.vidsplay.com/vids/us_postal.mp4',
-                      'genre': 'Cars'},
-                     {'name': 'Traffic',
-                      'thumb': 'http://www.vidsplay.com/vids/traffic1.jpg',
-                      'video': 'http://www.vidsplay.com/vids/traffic1.avi',
-                      'genre': 'Cars'},
-                     {'name': 'Traffic Arrows',
-                      'thumb': 'http://www.vidsplay.com/vids/traffic_arrows.jpg',
-                      'video': 'http://www.vidsplay.com/vids/traffic_arrows.mp4',
-                      'genre': 'Cars'}
-                     ],
             'MOVIES': [{'name': 'Postal Truck',
                       'thumb': 'http://www.vidsplay.com/vids/us_postal.jpg',
                       'video': 'http://www.vidsplay.com/vids/us_postal.mp4',
@@ -138,7 +125,10 @@ VIDEO = {'LIVE TV': [{'name': 'ABP News',
                       'thumb': 'http://www.vidsplay.com/vids/hamburger.jpg',
                       'video': 'http://www.vidsplay.com/vids/hamburger.mp4',
                       'genre': 'Food'},
-                     
+                     {'name': 'Pizza',
+                      'thumb': 'http://www.vidsplay.com/vids/pizza.jpg',
+                      'video': 'http://www.vidsplay.com/vids/pizza.mp4',
+                      'genre': 'Food'}
                      ]}
 
 
@@ -167,134 +157,10 @@ def get_categories():
 
     :return: The list of video categories
     :rtype: list
-    
-	
-	
-    return VIDEOS.iterkeys() """
-	
-	url1 = getURL()
-    VIDEOS = {'LIVE TV': [{'name': 'ABP News',
-                       'thumb': 'http://www.media247.co.uk/bizasia/wp-content/uploads/2017/01/abpnewsnew001.jpg',
-                       'video': 'http://hindiabp-lh.akamaihd.net/i/hindiabp1new_1@192103/master.m3u8',
-                       'genre': 'Animals'},
-                      {'name': 'ABP Ananda',
-                       'thumb': 'https://pbs.twimg.com/profile_images/2265469431/mhfdk1dfs640hd35tox6_400x400.jpeg',
-                       'video': 'http://bengaliabp-lh.akamaihd.net/i/abpbanglanew_1@192108/master.m3u8',
-                       'genre': 'Animals'},
-                      {'name': 'ETV Bangla',
-                       'thumb': 'http://sim03.in.com/62/2e7599512bb9b51fce54dd72e1f02f9e_m.jpg',
-                       'video': 'http://etvbanglalive-lh.akamaihd.net/i/etv_bangla_news_live_1@2289/index_3_av-p.m3u8?sd=10&play-only=primary&rebase=on&hdntl=exp=1479008971~acl=%2f*~data=hdntl~hmac=151ed96eca9cf183c67429750ada6122e1c1108f74716596b6703eed81a0c701',
-                       'genre': 'Animals'},
-					   {'name': 'NDTV 24x7',
-                       'thumb': 'http://www.indiantelevision.com/sites/drupal7.indiantelevision.co.in/files/images/tv-images/2014/05/08/ndtv.jpg',
-                       'video': 'http://ndtvstream-lh.akamaihd.net/i/ndtv_24x7_1@300633/index_352_av-p.m3u8',
-                       'genre': 'Animals'},
-					   {'name': 'NDTV INDIA HINDI',
-                       'thumb': 'https://yt3.ggpht.com/-H95jY2ux2YQ/AAAAAAAAAAI/AAAAAAAAAAA/ZWe_3_BJ5sY/s900-c-k-no-mo-rj-c0xffffff/photo.jpg',
-                       'video': 'http://bglive-a.bitgravity.com/ndtv/indlo/live/native',
-                       'genre': 'Animals'},
-					   {'name': 'INDIA TV',
-                       'thumb': 'http://1.bp.blogspot.com/-AMQZ-kBgxA4/T5DVOkqDO6I/AAAAAAAA2XU/yVqULj-ctv0/s1600/India-TV-Logo.jpg',
-                       'video': 'http://indiatvnews-lh.akamaihd.net/i/ITV_1@199237/index_3_av-p.m3u8',
-                       'genre': 'Animals'},
-					   {'name': 'IBN 7',
-                       'thumb': 'http://www.india-forums.com/tellybuzz/images/uploads/671_IBN-7-TV-Channel-India-Logo.jpg',
-                       'video': 'http://ibn7_hls-lh.akamaihd.net/i/ibn7_hls_n_1@174951/index_3_av-p.m3u8',
-                       'genre': 'Animals'},
-					   {'name': 'NEWS 24',
-                       'thumb': 'http://tvimages.burrp.com/images/channels2/news/news24.png',
-                       'video': 'http://d20vhs4gtao945.cloudfront.net/bagnetworks/ngrp:news24_all/chunklist_b634000.m3u8',
-                       'genre': 'Animals'},
-					   {'name': 'INDIA NEWS',
-                       'thumb': 'https://upload.wikimedia.org/wikipedia/en/4/49/India-news-logo.gif',
-                       'video': 'http://indiatvnews-lh.akamaihd.net/i/ITV_1@199237/index_3_av-b.m3u8?sd=10&rebase=on',
-                       'genre': 'Animals'},
-					   {'name': 'NEWS X HD',
-                       'thumb': 'http://images.mytm.in/u1341/3251071.jpg',
-                       'video': 'http://newsx.live-s.cdn.bitgravity.com/cdn-live/_definst_/newsx/live/newsxnew.smil/chunklist_w218860994_b512000.m3u8',
-                       'genre': 'Animals'},					   
-					   {'name': 'TV100 NEWS',
-                       'thumb': 'http://livetvstream247.tk/wp-content/uploads/2016/03/tv100-news-logo.jpg',
-                       'video': 'rtmp://capcobroadcaststream.in/guj//tv100.sdp_aac',
-                       'genre': 'Animals'},					   
-					   {'name': 'NEWS NATION',
-                       'thumb': 'http://extradesimovies.com/wp-content/uploads/2016/10/news-nation-Live-logo.png',
-                       'video': 'rtmp://54.255.176.172/live/newsnation_720p',
-                       'genre': 'Animals'},
-					   {'name': 'NEWS STATE',
-                       'thumb': 'https://newsnation1.s3.amazonaws.com/images/2014/02/19/740527207-UP.jpg',
-                       'video': 'rtmp://54.255.176.172/trans/nnstate_720p',
-                       'genre': 'Animals'},
-					   {'name': 'JOO MUSIC',
-                       'thumb': 'https://lh4.ggpht.com/Gmztx1CSvrLf3GsE8N67w5_THsaI8mVqPVFUW7l4Hor_71PTBnobOlBnCniWMmXxJDI=w300',
-                       'video': 'http://wowzacontrol.com:1935/8038/8038/chunklist_w1610289693.m3u8',
-                       'genre': 'Animals'},
-					   {'name': 'E24',
-                       'thumb': 'http://www.fetchlogos.com/wp-content/uploads/2015/10/E-24-Logo.jpg',
-                       'video': 'http://d3ibnxavurfby0.cloudfront.net/bagnetworks/ngrp:e24_all/playlist.m3u8',
-                       'genre': 'Animals'},					   
-					   {'name': 'KISS TV',
-                       'thumb': 'http://www.webtvstreams.com/wp-content/uploads/2014/04/Kiss-Tv.jpg',
-                       'video': 'http://fms113.mediadirect.ro:1937/live3/_definst_/kiss_low/playlist.m3u8?publisher=83&token=c31533f4f4f1f6154428aa3cfbcbecbf41719aa5baadd852',
-                       'genre': 'Animals'},					   
-					   {'name': 'DD NEWS',
-                       'thumb': 'https://upload.wikimedia.org/wikipedia/commons/7/77/DD_News_Logo_2015.jpg',
-                       'video': 'http://nicls1-lh.akamaihd.net/i/ddnews_1@409133/master.m3u8',
-                       'genre': 'Animals'},	
-					   {'name': 'NDTV PRIME',
-                       'thumb': 'http://www.exchange4media.com/storyimages/fs_57129.jpg',
-                       'video': 'http://bglive-a.bitgravity.com/ndtv/prolo/live/native',
-                       'genre': 'Animals'},
-					   {'name': 'ET NOW',
-                       'thumb': 'http://vignette1.wikia.nocookie.net/logopedia/images/b/bf/ET_Now.png/revision/latest?cb=20110930231639',
-                       'video': 'http://etnowweblive-lh.akamaihd.net/i/ETNowweb_1@348070/master.m3u8',
-                       'genre': 'Animals'},
-					   {'name': 'NEWS WORLD INDIA',
-                       'thumb': 'https://upload.wikimedia.org/wikipedia/en/8/83/News_World_India_Second_Logo_File.jpg',
-                       'video': 'http://newsworldcloud.purplestream.in/newsworld/newsworld3-live.smil/playlist.m3u8',
-                       'genre': 'Animals'}
-					   
-                      ],
-			'MHDTVLIVE': [{'name': 'Sony ESPN HD1',
-                      'thumb': 'http://www.vidsplay.com/vids/us_postal.jpg',
-                      'video': 'http://www.vidsplay.com/vids/us_postal.mp4',
-                      'genre': 'Cars'},
-                     {'name': 'Traffic',
-                      'thumb': 'http://www.vidsplay.com/vids/traffic1.jpg',
-                      'video': 'http://www.vidsplay.com/vids/traffic1.avi',
-                      'genre': 'Cars'},
-                     {'name': 'Traffic Arrows',
-                      'thumb': 'http://www.vidsplay.com/vids/traffic_arrows.jpg',
-                      'video': 'http://www.vidsplay.com/vids/traffic_arrows.mp4',
-                      'genre': 'Cars'}
-                     ],
-            'MOVIES': [{'name': 'Postal Truck',
-                      'thumb': 'http://www.vidsplay.com/vids/us_postal.jpg',
-                      'video': 'http://www.vidsplay.com/vids/us_postal.mp4',
-                      'genre': 'Cars'},
-                     {'name': 'Traffic',
-                      'thumb': 'http://www.vidsplay.com/vids/traffic1.jpg',
-                      'video': 'http://www.vidsplay.com/vids/traffic1.avi',
-                      'genre': 'Cars'},
-                     {'name': 'Traffic Arrows',
-                      'thumb': 'http://www.vidsplay.com/vids/traffic_arrows.jpg',
-                      'video': 'http://www.vidsplay.com/vids/traffic_arrows.mp4',
-                      'genre': 'Cars'}
-                     ],
-            'TV SHOWS': [{'name': 'Chicken',
-                      'thumb': 'http://www.vidsplay.com/vids/chicken.jpg',
-                      'video': 'http://www.vidsplay.com/vids/bbqchicken.mp4',
-                      'genre': 'Food'},
-                     {'name': 'Hamburger',
-                      'thumb': 'http://www.vidsplay.com/vids/hamburger.jpg',
-                      'video': 'http://www.vidsplay.com/vids/hamburger.mp4',
-                      'genre': 'Food'},
-                     
-                     ]}
+    """
     return VIDEOS.iterkeys()
-	
-def getURL()
-    return 'http://hindiabp-lh.akamaihd.net/i/hindiabp1new_1@192103/master.m3u8'
+
+
 def get_videos(category):
     """
     Get the list of videofiles/streams.
@@ -310,7 +176,7 @@ def get_videos(category):
     :return: the list of videos in the category
     :rtype: list
     """
-    return VIDEO[category]
+    return VIDEOS[category]
 
 
 def list_categories():
@@ -326,9 +192,9 @@ def list_categories():
         # Set graphics (thumbnail, fanart, banner, poster, landscape etc.) for the list item.
         # Here we use the same image for all items for simplicity's sake.
         # In a real-life plugin you need to set each image accordingly.
-        list_item.setArt({'thumb': VIDEO[category][0]['thumb'],
-                          'icon': VIDEO[category][0]['thumb'],
-                          'fanart': VIDEO[category][0]['thumb']})
+        list_item.setArt({'thumb': VIDEOS[category][0]['thumb'],
+                          'icon': VIDEOS[category][0]['thumb'],
+                          'fanart': VIDEOS[category][0]['thumb']})
         # Set additional info for the list item.
         # Here we use a category name for both properties for for simplicity's sake.
         # setInfo allows to set various information for an item.
